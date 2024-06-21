@@ -1,0 +1,40 @@
+.movieTable {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.movieTable h2 {
+    margin-bottom: 20px;
+}
+
+.movieTable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.movieTable table th,
+.movieTable table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.movieTable table th {
+    background-color: #f8f8f8;
+}
+
+.movieTable table button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.movieTable table button:hover {
+    background-color: #c82333;
+}

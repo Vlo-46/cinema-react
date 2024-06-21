@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import Loader from './Loader';
-import BackButton from "./BackButton";
-import {axiosInstance} from "../services/api";
+import Loader from '../Shared/Loader';
+import BackButton from '../Shared/BackButton';
+import {axiosInstance} from '../../services/api';
+import styles from './MovieList.module.css';
 
 const MovieList = ({roomId, onMovieSelect}) => {
     const [movies, setMovies] = useState([]);
@@ -24,7 +25,7 @@ const MovieList = ({roomId, onMovieSelect}) => {
             <h2>Select a Movie</h2>
             <ul>
                 {movies.map(movie => (
-                    <li key={movie._id} onClick={() => onMovieSelect(movie._id)}>
+                    <li key={movie._id} onClick={() => onMovieSelect(movie._id)} className={styles.movieItem}>
                         {movie.title} - {new Date(movie.schedule).toLocaleString()}
                     </li>
                 ))}

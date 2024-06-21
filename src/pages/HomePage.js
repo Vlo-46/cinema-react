@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import RoomList from '../components/RoomList';
+import RoomList from '../components/Home/RoomList';
 import {useNavigate} from 'react-router-dom';
 
 const HomePage = () => {
@@ -12,9 +12,9 @@ const HomePage = () => {
     };
 
     return (
-        <div>
+        <section>
             <RoomList onRoomSelect={handleRoomSelect}/>
-        </div>
+        </section>
     );
 };
 

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {axiosInstance} from "../services/api";
-import Loader from './Loader';
-import BackButton from "./BackButton";
-import styles from './seatSelection.module.css'
+import {axiosInstance} from '../../services/api';
+import Loader from '../Shared/Loader';
+import BackButton from '../Shared/BackButton';
+import styles from './SeatSelection.module.css';
 
 const SeatSelection = ({movieId}) => {
     const [seats, setSeats] = useState([]);
@@ -23,7 +23,7 @@ const SeatSelection = ({movieId}) => {
                 const updatedBooking = response.data;
                 setSeats(prevSeats =>
                     prevSeats.map(s =>
-                        s._id === updatedBooking._id ? { ...s, isBooked: true } : s
+                        s._id === updatedBooking._id ? {...s, isBooked: true} : s
                     )
                 );
             })
@@ -48,13 +48,13 @@ const SeatSelection = ({movieId}) => {
 
     return (
         <div>
-            <BackButton />
+            <BackButton/>
             <h2>Select a Seat</h2>
             <div className={styles.seats}>
                 {
                     seats.length
                         ? seats.map(row => (
-                            <div key={row._id} className={styles.seat__row}>
+                            <div key={row._id} className={styles.seatRow}>
                                 {renderSeat(row)}
                             </div>
                         ))

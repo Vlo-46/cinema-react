@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import {axiosInstance} from "../../services/api";
-import './admin.css'
+import React, {useState, useEffect} from 'react';
+import {axiosInstance} from '../../services/api';
+import styles from './AddMovie.module.css';
 
 const AddMovie = () => {
     const [title, setTitle] = useState('');
@@ -30,34 +30,35 @@ const AddMovie = () => {
 
         try {
             const scheduleArray = schedule.split(',').map(date => new Date(date).toISOString());
-            await axiosInstance.post('/movies', { title, poster, schedule: scheduleArray, room: roomId });
+            await axiosInstance.post('/movies', {title, poster, schedule: scheduleArray, room: roomId});
             setMessage('Movie added successfully');
             setTitle('');
             setPoster('');
             setSchedule('');
             setRoomId('');
         } catch (error) {
-            setMessage('Failed to add movie', error);
+            setMessage('Failed to add movie');
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div>
+        <div className={styles.addMovie}>
             <h2>Add Movie</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Title</label>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required/>
                 </div>
                 <div>
                     <label>Poster URL</label>
-                    <input type="text" value={poster} onChange={(e) => setPoster(e.target.value)} required />
+                    <input type="text" value={poster} onChange={(e) => setPoster(e.target.value)} required/>
                 </div>
                 <div>
                     <label>Schedule (comma separated dates)</label>
-                    <input type="date" value={schedule} onChange={(e) => setSchedule(e.target.value)} required />
+                    <input type="datetime-local" value={schedule} onChange={(e) => setSchedule(e.target.value)}
+                           required/>
                 </div>
                 <div>
                     <label>Room</label>

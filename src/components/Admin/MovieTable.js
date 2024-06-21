@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {axiosInstance} from "../../services/api";
-import './admin.css'
+import {axiosInstance} from '../../services/api';
+import styles from './MovieTable.module.css';
 
 const MovieTable = () => {
     const [movies, setMovies] = useState([]);
@@ -28,7 +28,7 @@ const MovieTable = () => {
     };
 
     return (
-        <div>
+        <div className={styles.movieTable}>
             <h2>Movies</h2>
             <table>
                 <thead>
@@ -40,7 +40,7 @@ const MovieTable = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {movies.map(movie => (
+                {movies.length ? movies.map(movie => (
                     <tr key={movie._id}>
                         <td>{movie.title}</td>
                         <td>{movie.schedule.map(date => new Date(date).toLocaleString()).join(', ')}</td>
@@ -49,7 +49,7 @@ const MovieTable = () => {
                             <button onClick={() => handleDelete(movie._id)}>Delete</button>
                         </td>
                     </tr>
-                ))}
+                )) : null}
                 </tbody>
             </table>
         </div>

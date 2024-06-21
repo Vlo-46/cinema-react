@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {axiosInstance} from "../../services/api";
-import './admin.css'
+import {axiosInstance} from '../../services/api';
+import styles from './AddRoom.module.css';
 
 const AddRoom = () => {
     const [name, setName] = useState('');
@@ -25,7 +25,7 @@ const AddRoom = () => {
     };
 
     return (
-        <div>
+        <div className={styles.addRoom}>
             <h2>Add Room</h2>
             <form onSubmit={handleSubmit}>
                 <div>

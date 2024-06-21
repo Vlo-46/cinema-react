@@ -1,5 +1,5 @@
 import React from 'react';
-import SeatSelection from '../components/SeatSelection';
+import SeatSelection from '../components/Seats/SeatSelection';
 import {useLocation} from 'react-router-dom';
 
 const useQuery = () => {
@@ -11,9 +11,9 @@ const SeatsPage = () => {
     const movieId = query.get('movieId');
 
     return (
-        <div>
+        <section>
             {movieId ? <SeatSelection movieId={movieId}/> : <div>Select a Movie First</div>}
-        </div>
+        </section>
     );
 };
 

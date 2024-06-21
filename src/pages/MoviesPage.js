@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieList from '../components/MovieList';
+import MovieList from '../components/Movies/MovieList';
 import {useLocation, useNavigate} from 'react-router-dom';
 
 const useQuery = () => {
@@ -16,9 +16,9 @@ const MoviesPage = () => {
     };
 
     return (
-        <div>
+        <section>
             {roomId ? <MovieList roomId={roomId} onMovieSelect={handleMovieSelect}/> : <div>Select a Room First</div>}
-        </div>
+        </section>
     );
 };
 

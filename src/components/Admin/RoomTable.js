@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {axiosInstance} from "../../services/api";
-import './admin.css'
+import {axiosInstance} from '../../services/api';
+import styles from './RoomTable.module.css';
 
 const RoomTable = () => {
     const [rooms, setRooms] = useState([]);
@@ -28,7 +28,7 @@ const RoomTable = () => {
     };
 
     return (
-        <div>
+        <div className={styles.roomTable}>
             <h2>Rooms</h2>
             <table>
                 <thead>

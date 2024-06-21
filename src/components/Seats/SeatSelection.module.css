@@ -1,6 +1,7 @@
 .seats {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    padding: 2rem;
 }
 
 .seat__row {
